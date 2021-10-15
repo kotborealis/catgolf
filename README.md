@@ -23,7 +23,7 @@ perl -e 'while(<>){print}' file.txt
 diff --new-line-format="%L" /dev/null file.txt
 ffmpeg -v quiet -f data -i file.txt -map 0:0 -c text -f data -
 emacs -Q --batch --eval '(princ (with-temp-buffer (insert-file-contents "file.txt") (buffer-string)))'
-echo "main(a,b)char**b;{a=open(b[1],0,1);for(;read(a,*b,1);write(1));}"|gcc -xc -oa -w -&&./a test.txt
+echo "main(a,b)char**b;{for(a=open(b[1],0);read(a,*b,1);write(1));}"|gcc -xc -oa -w -&&./a file.txt
 ```
 
 ### Error league
